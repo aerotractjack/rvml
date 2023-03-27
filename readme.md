@@ -6,6 +6,6 @@
 OR
 
 ```
-$ chmod +x runwithconfig.sh
+$ chmod +x runwithconfig.sh  # this is a setup step, only needs to be run once
 $ ./runwithconfig.sh /PATH/TO/CONFIG.yaml
 ```
