@@ -1,3 +1,5 @@
 *.tif
 data/*.json
 **/__pycache__
+tf/**
+!tf/main.tf
