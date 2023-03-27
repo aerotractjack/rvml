@@ -15,7 +15,7 @@ validation_list:
   ]
 
 # output path for training/evaluation results
-output_root_uri: '/home/aerotract/RasterVision/RunModelWithScenesOutput-nopred'
+output_root_uri: 's3://rvml-results/'
 
 # Class config for this experiment, defines class names and colors
 class_config:
@@ -33,13 +33,18 @@ window_config:
   img_sz: 450
   max_windows: 450
 
-# Model backbone options
-# source: source/type of model. If `pytorch_learner`, it can be used directly from rastervision
-#       Different types may need different processing
-# name: model name to use 
+# Model backbone options - different model sources need different parameters
+# backbone_config:  
+#   source: "rastervision"
+#   name: "resnet18"
 backbone_config:
-  source: "pytorch_learner"
-  name: "resnet18"
+  source: "external"
+  github_repo: "AdeelH/vision:det_hubconf_0.12"
+  name: "ssd"
+  entrypoint: "ssd300_vgg16"
+  force_reload: True
+  pretrained: False
+  pretrained_backbone: True
 
 # Hyperparams and params for solver used in training
 solver_config:

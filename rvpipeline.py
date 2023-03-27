@@ -9,17 +9,19 @@ from rastervision.core.data.vector_transformer.class_inference_transformer_confi
 from rastervision.pytorch_learner.learner_config import (
     GeoDataWindowMethod,
     SolverConfig,
-    Backbone
+    Backbone,
+    ExternalModuleConfig
 )
 from rastervision.core.rv_pipeline import (
     ObjectDetectionConfig,
     ObjectDetectionChipOptions,
 )
-
 from rastervision.pytorch_learner.object_detection_learner_config import (
     ObjectDetectionGeoDataConfig,
     ObjectDetectionModelConfig
 )
+from rastervision.pytorch_learner.object_detection_utils import TorchVisionODAdapter
+from torchvision.models import detection as TorchVisDetection
 import os
 from yaml import load
 try:
@@ -28,12 +30,14 @@ except ImportError:
     from yaml import Loader
 
 def load_yaml(kw):
+    ''' helper function to load YAML config file and return contents as dict '''
     path = kw["config"]
     with open(path, "r") as fp:
         return load(fp, Loader=Loader)
     
 def set_env(input_config):
-    envvars = input_config.get("env")
+    ''' Set environment variables (if any) given in config YAML file'''
+    envvars = input_config.get("env", {})
     if not envvars.get("apply", False):
         return
     for k, v in envvars.items():
@@ -41,17 +45,53 @@ def set_env(input_config):
         os.environ[k] = str(v)
 
 def pre_pipeline(kw):
+    ''' Run the pre-pipeline steps '''
     cfg = load_yaml(kw)
     set_env(cfg)
     return cfg
 
-def get_model(kw):
-    src = kw["backbone_config"]["source"]
-    name = kw["backbone_config"]["name"]
-    if src == "pytorch_learner":
-        return getattr(Backbone, name)
+def get_model_cfg(bbkw, class_config):
+    ''' Return instance of model defined in config YAML file'''
+    src = bbkw["source"]
+    if src == "rastervision":
+        name = bbkw["backbone_config"]["name"]
+        backbone = getattr(Backbone, name)
+        return ObjectDetectionModelConfig(backbone=backbone)
+    elif src == "external":
+        external_def = ExternalModuleConfig(
+            github_repo=bbkw["github_repo"],
+            name=bbkw["name"],
+            entrypoint=bbkw["entrypoint"],
+            force_reload=bbkw.get("force_reload", True),
+            entrypoint_kwargs={
+                "num_classes": len(class_config) + 1,
+                "pretrained": bbkw.get("pretrained", False),
+                "pretrained_backbone": bbkw.get("pretrained_backbone", True)
+            }
+        )
+        return ObjectDetectionModelConfig(external_def=external_def)
     else:
         raise NotImplementedError("valid Backbone sources: [pytorch_learner]")
+
+def make_scene(image_uri: str, label_uri: str, aoi_uri: str,
+               class_config: ClassConfig) -> SceneConfig:
+    '''' Define a Scene with image and labels from the given URIs. '''
+    scene_id = label_uri.split('/')[-3]
+    raster_source = RasterioSourceConfig(
+            uris=[image_uri], channel_order=[0, 1, 2])
+    label_source = ObjectDetectionLabelSourceConfig(
+        vector_source=GeoJSONVectorSourceConfig(
+                uri=label_uri,
+                ignore_crs_field=True,
+                transformers=[ClassInferenceTransformerConfig(default_class_id=0)]
+        )
+    )
+    return SceneConfig(
+        id=scene_id,
+        raster_source=raster_source,
+        label_source=label_source,
+        aoi_uris=[aoi_uri]
+    )
 
 def get_config(runner, **kw) -> ObjectDetectionConfig:
     input_config = pre_pipeline(kw)
@@ -95,11 +135,11 @@ def get_config(runner, **kw) -> ObjectDetectionConfig:
         **input_config["predict_options"]
     )
 
-    backbone = get_model(input_config)
+    model_cfg = get_model_cfg(input_config["backbone_config"], class_config)
     
     backend = PyTorchObjectDetectionConfig(
         data=data,
-        model=ObjectDetectionModelConfig(backbone=backbone),
+        model=model_cfg,
         solver=SolverConfig(**input_config["solver_config"]),
         log_tensorboard=input_config["tensorboard"]["log"],
         run_tensorboard=input_config["tensorboard"]["run"]
@@ -113,27 +153,3 @@ def get_config(runner, **kw) -> ObjectDetectionConfig:
         predict_chip_sz=chip_sz,
         chip_options=chip_options,
         predict_options=predict_options)
-
-
-def make_scene(image_uri: str, label_uri: str, aoi_uri: str,
-               class_config: ClassConfig) -> SceneConfig:
-    """Define a Scene with image and labels from the given URIs."""
-    scene_id = label_uri.split('/')[-3]
-    raster_source = RasterioSourceConfig(
-            uris=[image_uri], channel_order=[0, 1, 2])
-    # configure transformation of vector data into Object Detection labels
-    label_source = ObjectDetectionLabelSourceConfig(
-        # object detection labels must be rasters, so rasterize the geoms
-        vector_source=GeoJSONVectorSourceConfig(
-                uri=label_uri,
-                ignore_crs_field=True,
-                transformers=[
-                   ClassInferenceTransformerConfig(default_class_id=0)]
-        )
-    )
-    return SceneConfig(
-        id=scene_id,
-        raster_source=raster_source,
-        label_source=label_source,
-        aoi_uris=[aoi_uri]
-    )

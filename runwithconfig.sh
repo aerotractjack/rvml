@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rastervision run local rvpipeline.py $1
+rastervision run local rvpipeline.py -a config $1
