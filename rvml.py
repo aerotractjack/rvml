@@ -82,6 +82,9 @@ class RVMLTrainer:
         self.pds = pds
         return pds
     
+    def create_train_val_scene(self, **kw):
+        pass
+    
     def build_model(self):
         model = fasterrcnn_resnet50_fpn_v2(num_classes=len(self.cc)+1)
         model = TorchVisionODAdapter(model)
