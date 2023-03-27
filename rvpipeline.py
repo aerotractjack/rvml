@@ -1,9 +1,26 @@
+from rastervision.core.data import ClassConfig, DatasetConfig, SceneConfig
+from rastervision.core.data.raster_source.rasterio_source_config import RasterioSourceConfig
+from rastervision.core.rv_pipeline.object_detection_config import ObjectDetectionPredictOptions
+from rastervision.pytorch_learner import ObjectDetectionGeoDataWindowConfig
+from rastervision.pytorch_backend.pytorch_object_detection_config import PyTorchObjectDetectionConfig
+from rastervision.core.data.label_source.object_detection_label_source_config import ObjectDetectionLabelSourceConfig
+from rastervision.core.data.vector_source.geojson_vector_source_config import GeoJSONVectorSourceConfig
+from rastervision.core.data.vector_transformer.class_inference_transformer_config import ClassInferenceTransformerConfig
+from rastervision.pytorch_learner.learner_config import (
+    GeoDataWindowMethod,
+    SolverConfig,
+    Backbone
+)
+from rastervision.core.rv_pipeline import (
+    ObjectDetectionConfig,
+    ObjectDetectionChipOptions,
+)
+
+from rastervision.pytorch_learner.object_detection_learner_config import (
+    ObjectDetectionGeoDataConfig,
+    ObjectDetectionModelConfig
+)
 import os
-from rastervision.core.rv_pipeline import *
-from rastervision.core.backend import *
-from rastervision.core.data import *
-from rastervision.pytorch_backend import *
-from rastervision.pytorch_learner import *
 from yaml import load
 try:
     from yaml import CLoader as Loader
@@ -27,6 +44,14 @@ def pre_pipeline(kw):
     cfg = load_yaml(kw)
     set_env(cfg)
     return cfg
+
+def get_model(kw):
+    src = kw["backbone_config"]["source"]
+    name = kw["backbone_config"]["name"]
+    if src == "pytorch_learner":
+        return getattr(Backbone, name)
+    else:
+        raise NotImplementedError("valid Backbone sources: [pytorch_learner]")
 
 def get_config(runner, **kw) -> ObjectDetectionConfig:
     input_config = pre_pipeline(kw)
@@ -69,13 +94,16 @@ def get_config(runner, **kw) -> ObjectDetectionConfig:
     predict_options = ObjectDetectionPredictOptions(
         **input_config["predict_options"]
     )
+
+    backbone = get_model(input_config)
     
     backend = PyTorchObjectDetectionConfig(
         data=data,
-        model=ObjectDetectionModelConfig(backbone=Backbone.resnet50),
+        model=ObjectDetectionModelConfig(backbone=backbone),
         solver=SolverConfig(**input_config["solver_config"]),
-        log_tensorboard=True,
-        run_tensorboard=False)
+        log_tensorboard=input_config["tensorboard"]["log"],
+        run_tensorboard=input_config["tensorboard"]["run"]
+    )
 
     return ObjectDetectionConfig(
         root_uri=output_root_uri,
