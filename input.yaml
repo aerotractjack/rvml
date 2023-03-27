@@ -1,0 +1,41 @@
+training_list:
+  - [
+    '/home/aerotract/NAS/main/Clients/Giustina/Winter2023/108_Moffit/08_Moffit_0212023/Data/ortho/08MoffitGR02122023_Orthomosaic_export_FriMar10183649417525.tif',
+    '/home/aerotract/NAS/main/Clients/Giustina/Winter2023/108_Moffit/08_Moffit_0212023/Training/Trees.geojson',
+    '/home/aerotract/NAS/main/Clients/Giustina/Winter2023/108_Moffit/08_Moffit_0212023/Training/Boundary.geojson'
+  ]
+
+validation_list:
+  - [
+    '/home/aerotract/NAS/main/Clients/Giustina/Winter2023/100_230OG/00_230OG_02022023/Data/ortho/230OG_Orthomosaic_WedMar08181810258552/230OG_Orthomosaic_export_WedMar08181810258552.tif',
+    '/home/aerotract/NAS/main/Clients/Giustina/Winter2023/100_230OG/00_230OG_02022023/Training/Tree_polygons_00_230OG.geojson',
+    '/home//aerotract/NAS/main/Clients/Giustina/Winter2023/100_230OG/00_230OG_02022023/Training/border_polygon_00_230OG.geojson',
+  ]
+
+output_root_uri: '/home/aerotract/RasterVision/RunModelWithScenesOutput-nopred'
+
+class_config:
+  names: ["DF"]
+  colors: ["red"]
+
+chip_options:
+  neg_ratio: 0.1
+  ioa_thresh: 0.8
+
+window_config:
+  chip_sz: 450
+  img_sz: 450
+  max_windows: 450
+
+solver_config:
+  lr: 1e-4
+  num_epochs: 1
+  batch_sz: 8
+  one_cycle: True
+  test_num_epochs: 2
+
+predict_options:
+  merge_thresh: 0.1
+  score_thresh: 0.8
+
+num_workers: 16
