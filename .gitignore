@@ -3,3 +3,4 @@ data/*.json
 **/__pycache__
 tf/**
 !tf/main.tf
+**/s3:/**
