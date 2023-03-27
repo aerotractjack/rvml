@@ -47,7 +47,7 @@ def _shp_to_geojson(file_group_list):
         for i, file in enumerate(group):
             if file.split(".")[-1] != "shp":
                 continue
-            fileshp = geopandas.read_file(file)
+            fileshp = geopandas.read_file(file).dropna().to_crs("EPSG:4326")
             jsonpath = file.split(".")[0] + ".geojson"
             print(fileshp, "->", jsonpath)
             fileshp.to_file(jsonpath, driver="GeoJSON", crs="EPSG:4326")
