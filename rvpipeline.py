@@ -64,9 +64,7 @@ def pre_pipeline(kw):
     ''' Run the pre-pipeline steps '''
     cfg = load_yaml(kw)
     set_env(cfg)
-    print(cfg["training_list"])
     cfg = shp_to_geojson(cfg)
-    print(cfg["training_list"])
     return cfg
 
 def get_model_cfg(bbkw, class_config):
