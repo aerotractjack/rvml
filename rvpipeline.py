@@ -71,7 +71,7 @@ def get_model_cfg(bbkw, class_config):
     ''' Return instance of model defined in config YAML file'''
     src = bbkw["source"]
     if src == "rastervision":
-        name = bbkw["backbone_config"]["name"]
+        name = bbkw["name"]
         backbone = getattr(Backbone, name)
         return ObjectDetectionModelConfig(backbone=backbone)
     elif src == "external":
