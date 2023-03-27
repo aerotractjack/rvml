@@ -90,7 +90,7 @@ def get_model_cfg(bbkw, class_config):
     else:
         raise NotImplementedError("valid Backbone sources: {rastervision, external}")
 
-def make_scene(image_uri: str, label_uri: str, aoi_uri: str) -> SceneConfig:
+def make_scene(image_uri: str, label_uri: str, aoi_uri=None) -> SceneConfig:
     '''' Define a Scene with image and labels from the given URIs. '''
     scene_id = label_uri.split('/')[-3]
     raster_source = RasterioSourceConfig(
@@ -102,11 +102,12 @@ def make_scene(image_uri: str, label_uri: str, aoi_uri: str) -> SceneConfig:
                 transformers=[ClassInferenceTransformerConfig(default_class_id=0)]
         )
     )
+    aoi_uris = [aoi_uri] if aoi_uri is not None else []
     return SceneConfig(
         id=scene_id,
         raster_source=raster_source,
         label_source=label_source,
-        aoi_uris=[aoi_uri]
+        aoi_uris=aoi_uris
     )
 
 def get_config(runner, **kw) -> ObjectDetectionConfig:
