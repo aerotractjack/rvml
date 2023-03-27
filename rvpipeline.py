@@ -92,7 +92,7 @@ def get_model_cfg(bbkw, class_config):
 
 def make_scene(image_uri: str, label_uri: str, aoi_uri=None) -> SceneConfig:
     '''' Define a Scene with image and labels from the given URIs. '''
-    scene_id = label_uri.split('/')[-3]
+    scene_id = label_uri.split('/')[-4]
     raster_source = RasterioSourceConfig(
             uris=[image_uri], channel_order=[0, 1, 2])
     label_source = ObjectDetectionLabelSourceConfig(
