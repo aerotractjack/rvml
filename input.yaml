@@ -33,6 +33,14 @@ window_config:
   img_sz: 450
   max_windows: 450
 
+# Model backbone options
+# source: source/type of model. If `pytorch_learner`, it can be used directly from rastervision
+#       Different types may need different processing
+# name: model name to use 
+backbone_config:
+  source: "pytorch_learner"
+  name: "resnet18"
+
 # Hyperparams and params for solver used in training
 solver_config:
   lr: 1e-4
@@ -48,6 +56,11 @@ predict_options:
 
 # Number of workers to deploy on the system
 num_workers: 16
+
+# Tensorboard controls
+tensorboard:
+  log: True
+  run: True
 
 # Environment variables to set before running pipeline
 env:
