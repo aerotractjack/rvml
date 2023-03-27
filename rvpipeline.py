@@ -1,4 +1,4 @@
-from os.path import join
+import os
 from rastervision.core.rv_pipeline import *
 from rastervision.core.backend import *
 from rastervision.core.data import *
@@ -10,12 +10,26 @@ try:
 except ImportError:
     from yaml import Loader
 
-def load_yaml(path):
+def load_yaml(kw):
+    path = kw["config"]
     with open(path, "r") as fp:
         return load(fp, Loader=Loader)
+    
+def set_env(input_config):
+    envvars = input_config.get("env")
+    if not envvars.get("apply", False):
+        return
+    for k, v in envvars.items():
+        print(k, "=", v)
+        os.environ[k] = str(v)
+
+def pre_pipeline(kw):
+    cfg = load_yaml(kw)
+    set_env(cfg)
+    return cfg
 
 def get_config(runner, **kw) -> ObjectDetectionConfig:
-    input_config = load_yaml(kw["yaml"])
+    input_config = pre_pipeline(kw)
     output_root_uri = input_config["output_root_uri"]
     class_config = ClassConfig(
         names=input_config["class_config"]["names"],
@@ -32,11 +46,10 @@ def get_config(runner, **kw) -> ObjectDetectionConfig:
         validation_scenes=[make_scene(*stand,class_config) for stand in validation_list]
     )
 
-    chip_sz = input_config["chip_sz"]
-    img_sz = input_config["img_sz"]
-
     chip_options = ObjectDetectionChipOptions(**input_config["chip_options"])
     
+    chip_sz = input_config["window_config"]["chip_sz"]
+    img_sz = input_config["window_config"]["img_sz"]    
     window_opts = ObjectDetectionGeoDataWindowConfig(
             method=GeoDataWindowMethod.random,
             size=chip_sz,

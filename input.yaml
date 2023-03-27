@@ -1,3 +1,4 @@
+# [image, labels, boundary] file groups for training
 training_list:
   - [
     '/home/aerotract/NAS/main/Clients/Giustina/Winter2023/108_Moffit/08_Moffit_0212023/Data/ortho/08MoffitGR02122023_Orthomosaic_export_FriMar10183649417525.tif',
@@ -5,6 +6,7 @@ training_list:
     '/home/aerotract/NAS/main/Clients/Giustina/Winter2023/108_Moffit/08_Moffit_0212023/Training/Boundary.geojson'
   ]
 
+# [image, labels, boundary] file groups for evaluation
 validation_list:
   - [
     '/home/aerotract/NAS/main/Clients/Giustina/Winter2023/100_230OG/00_230OG_02022023/Data/ortho/230OG_Orthomosaic_WedMar08181810258552/230OG_Orthomosaic_export_WedMar08181810258552.tif',
@@ -12,21 +14,26 @@ validation_list:
     '/home//aerotract/NAS/main/Clients/Giustina/Winter2023/100_230OG/00_230OG_02022023/Training/border_polygon_00_230OG.geojson',
   ]
 
+# output path for training/evaluation results
 output_root_uri: '/home/aerotract/RasterVision/RunModelWithScenesOutput-nopred'
 
+# Class config for this experiment, defines class names and colors
 class_config:
   names: ["DF"]
   colors: ["red"]
 
+# Chip options for creating chips from dataset images
 chip_options:
   neg_ratio: 0.1
   ioa_thresh: 0.8
 
+# Window options for creating tiled datasets from images
 window_config:
   chip_sz: 450
   img_sz: 450
   max_windows: 450
 
+# Hyperparams and params for solver used in training
 solver_config:
   lr: 1e-4
   num_epochs: 1
@@ -34,8 +41,16 @@ solver_config:
   one_cycle: True
   test_num_epochs: 2
 
+# Hyperparams for prediction bounding boxes
 predict_options:
   merge_thresh: 0.1
   score_thresh: 0.8
 
+# Number of workers to deploy on the system
 num_workers: 16
+
+# Environment variables to set before running pipeline
+env:
+  apply: True
+  QT_QPA_PLATFORM: "offscreen"
+  CUDA_VISIBLE_DEVICES: "-1"
