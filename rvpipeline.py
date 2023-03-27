@@ -20,14 +20,13 @@ from rastervision.pytorch_learner.object_detection_learner_config import (
     ObjectDetectionGeoDataConfig,
     ObjectDetectionModelConfig
 )
-from rastervision.pytorch_learner.object_detection_utils import TorchVisionODAdapter
-from torchvision.models import detection as TorchVisDetection
 import os
 from yaml import load
 try:
     from yaml import CLoader as Loader
 except ImportError:
     from yaml import Loader
+import geopandas
 
 def load_yaml(kw):
     ''' helper function to load YAML config file and return contents as dict '''
@@ -41,13 +40,33 @@ def set_env(input_config):
     if not envvars.get("apply", False):
         return
     for k, v in envvars.items():
-        print(k, "=", v)
         os.environ[k] = str(v)
+
+def _shp_to_geojson(file_group_list):
+    for k, group in enumerate(file_group_list):
+        for i, file in enumerate(group):
+            if file.split(".")[-1] != "shp":
+                continue
+            fileshp = geopandas.read_file(file)
+            jsonpath = file.split(".")[0] + ".geojson"
+            print(fileshp, "->", jsonpath)
+            fileshp.to_file(jsonpath, driver="GeoJSON", crs="EPSG:4326")
+            group[i] = jsonpath
+        file_group_list[k] = group
+    return file_group_list
+
+def shp_to_geojson(input_config):
+    input_config["training_list"] = _shp_to_geojson(input_config["training_list"])
+    input_config["validation_list"] = _shp_to_geojson(input_config["validation_list"])
+    return input_config
 
 def pre_pipeline(kw):
     ''' Run the pre-pipeline steps '''
     cfg = load_yaml(kw)
     set_env(cfg)
+    print(cfg["training_list"])
+    cfg = shp_to_geojson(cfg)
+    print(cfg["training_list"])
     return cfg
 
 def get_model_cfg(bbkw, class_config):
@@ -71,10 +90,9 @@ def get_model_cfg(bbkw, class_config):
         )
         return ObjectDetectionModelConfig(external_def=external_def)
     else:
-        raise NotImplementedError("valid Backbone sources: [pytorch_learner]")
+        raise NotImplementedError("valid Backbone sources: {rastervision, external}")
 
-def make_scene(image_uri: str, label_uri: str, aoi_uri: str,
-               class_config: ClassConfig) -> SceneConfig:
+def make_scene(image_uri: str, label_uri: str, aoi_uri: str) -> SceneConfig:
     '''' Define a Scene with image and labels from the given URIs. '''
     scene_id = label_uri.split('/')[-3]
     raster_source = RasterioSourceConfig(
@@ -107,8 +125,8 @@ def get_config(runner, **kw) -> ObjectDetectionConfig:
     
     scene_dataset = DatasetConfig(
         class_config=class_config,
-        train_scenes=[make_scene(*stand,class_config) for stand in training_list],
-        validation_scenes=[make_scene(*stand,class_config) for stand in validation_list]
+        train_scenes=[make_scene(*stand) for stand in training_list],
+        validation_scenes=[make_scene(*stand) for stand in validation_list]
     )
 
     chip_options = ObjectDetectionChipOptions(**input_config["chip_options"])

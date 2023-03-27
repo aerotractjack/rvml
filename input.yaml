@@ -1,21 +1,24 @@
-# [image, labels, boundary] file groups for training
 training_list:
-  - [
-    '/home/aerotract/NAS/main/Clients/Giustina/Winter2023/108_Moffit/08_Moffit_0212023/Data/ortho/08MoffitGR02122023_Orthomosaic_export_FriMar10183649417525.tif',
-    '/home/aerotract/NAS/main/Clients/Giustina/Winter2023/108_Moffit/08_Moffit_0212023/Training/Trees.geojson',
-    '/home/aerotract/NAS/main/Clients/Giustina/Winter2023/108_Moffit/08_Moffit_0212023/Training/Boundary.geojson'
+  - ['/home/aerotract/NAS/main/Clients/Weyerhauser/Springfield_Spring2022/P22-402-P1/P22-402-P1_05172022/Data/ortho/WCSF10505172022P1.tif',
+    '/home/aerotract/NAS/main/Clients/Weyerhauser/Springfield_Spring2022/P22-402-P1/P22-402-P1_05172022/Modeling/P22-402_results_spring22/P22-402_model.shp'
   ]
-
+  - ['/home/aerotract/NAS/main/Clients/Weyerhauser/Springfield_Spring2022/P22-403-P1/P22-403-P1_05172022/Data/ortho/WCSF10605172022P1.tif',
+    '/home/aerotract/NAS/main/Clients/Weyerhauser/Springfield_Spring2022/P22-403-P1/P22-403-P1_05172022/Modeling/P22-403_model/P22-403_model.shp'
+  ]
+  - ['/home/aerotract/NAS/main/Clients/Weyerhauser/Springfield_Spring2022/P22-407-P1/P22-407-P1_04112022/Data/ortho/WCSF10104112022P1.tif',
+    '/home/aerotract/NAS/main/Clients/Weyerhauser/Springfield_Spring2022/P22-407-P1/P22-407-P1_04112022/Modeling/WCSF10104112022P1_BAM5/WCSF10104112022P1.shp'
+  ]
+  - ['/home/aerotract/NAS/main/Clients/Weyerhauser/Springfield_Spring2022/P22-408-P1/P22-408-P1_04062022/Data/ortho/WCSF09704062022P1.tif',
+    '/home/aerotract/NAS/main/Clients/Weyerhauser/Springfield_Spring2022/P22-408-P1/P22-408-P1_04062022/Modeling/clean_t.60.shp'
+  ]
 # [image, labels, boundary] file groups for evaluation
 validation_list:
-  - [
-    '/home/aerotract/NAS/main/Clients/Giustina/Winter2023/100_230OG/00_230OG_02022023/Data/ortho/230OG_Orthomosaic_WedMar08181810258552/230OG_Orthomosaic_export_WedMar08181810258552.tif',
-    '/home/aerotract/NAS/main/Clients/Giustina/Winter2023/100_230OG/00_230OG_02022023/Training/Tree_polygons_00_230OG.geojson',
-    '/home//aerotract/NAS/main/Clients/Giustina/Winter2023/100_230OG/00_230OG_02022023/Training/border_polygon_00_230OG.geojson',
+  - ['/home/aerotract/NAS/main/Clients/Weyerhauser/Springfield_Spring2022/P22-629-P1/P22-629-P1_05162022/Data/ortho/WCSF10805162022P1.tif',
+    '/home/aerotract/NAS/main/Clients/Weyerhauser/Springfield_Spring2022/P22-629-P1/P22-629-P1_05162022/Modeling/P22-629_model/P22-629_model.shp'
   ]
 
 # output path for training/evaluation results
-output_root_uri: 's3://rvml-results/'
+output_root_uri: 's3://rvml-results/test2'
 
 # Class config for this experiment, defines class names and colors
 class_config:
@@ -52,7 +55,7 @@ solver_config:
   num_epochs: 1
   batch_sz: 8
   one_cycle: True
-  test_num_epochs: 2
+  test_num_epochs: 1
 
 # Hyperparams for prediction bounding boxes
 predict_options:
