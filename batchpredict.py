@@ -28,7 +28,7 @@ bundle_uri = '/home/aerotract/RasterVision/RunModelWithScenesOutput/train/model-
 
 with open('input.yaml') as yamlconfig:
     configYaml = yaml.load(yamlconfig,Loader=yaml.Loader)
-pprint(configYaml)
+#pprint(configYaml)
     
 
 class_config = ClassConfig(names=configYaml['class_config']['names'], colors=configYaml['class_config']['colors'])
@@ -41,6 +41,7 @@ for number,tif in enumerate(prediction_list):
     
     #create output directory
     output_directory = os.path.join(pathlib.Path(tif).parent.parent.parent.parent,'Modeling')
+    print(output_directory)
     
     print("creating learner....")
     learner = ObjectDetectionLearner.from_model_bundle(model_bundle_uri=bundle_uri,
