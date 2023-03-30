@@ -40,8 +40,15 @@ for number,tif in enumerate(prediction_list):
     print(f'starting project {number} of {len(prediction_list)}')
     
     #create output directory
+    
+    
     output_directory = os.path.join(pathlib.Path(tif).parent.parent.parent.parent,'Modeling')
     print(output_directory)
+    
+    # try:
+    #     f = open(output_directory,'x')
+    # except:
+    #     print("File already exists... continuing to prediction")
     
     print("creating learner....")
     learner = ObjectDetectionLearner.from_model_bundle(model_bundle_uri=bundle_uri,
@@ -63,6 +70,8 @@ for number,tif in enumerate(prediction_list):
     pred_labels = ObjectDetectionLabels.from_predictions(Dataset.windows,
                                                         predictions)
 
+    output_directory = os.path.join(output_directory,'product.geojson')
+    
     pred_labels.save(
         uri=output_directory,
         crs_transformer=Dataset.scene.raster_source.crs_transformer,
