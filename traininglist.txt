@@ -1,27 +1,5 @@
-# training_list:
-#   - ['/home/aerotract/NAS/Clients/Freres/March2023Voles/100_Small/Small_03162023/Data/ortho/100_Small_Orthomosaic_SatMar18214115595123/UntitledProject_Orthomosaic_export_SatMar18214115595123.tif',
-#     '/home/aerotract/NAS/Clients/Freres/March2023Voles/100_Small/Small_03162023/Training/holes.geojson',
-#     '/home/aerotract/NAS/Clients/Freres/March2023Voles/100_Small/Small_03162023/Training/boundary.geojson'
-#   ]
-
-#   - ['/home/aerotract/NAS/Clients/Freres/March2023Voles/101_Medium/Medium_03162023/Data/ortho/UntitledProject_Orthomosaic_export_SatMar18214827194658.tif',
-#     '/home/aerotract/NAS/Clients/Freres/March2023Voles/101_Medium/Medium_03162023/Training/holes.geojson',
-#     '/home/aerotract/NAS/Clients/Freres/March2023Voles/101_Medium/Medium_03162023/Training/boundary.geojson'
-#   ]
-
-#   - ['/home/aerotract/NAS/Clients/Freres/March2023Voles/100_Small/Small_03162023/Data/ortho/100_Small_Orthomosaic_SatMar18214115595123/UntitledProject_Orthomosaic_export_SatMar18214115595123.tif',
-#     '/home/aerotract/NAS/Clients/Freres/March2023Voles/102_Large/Large_03162023/Training/holes.geojson',
-#     '/home/aerotract/NAS/Clients/Freres/March2023Voles/102_Large/Large_03162023/Training/boundary.geojson'
-#   ]
-
-# # [image, labels, boundary] file groups for evaluation
-# validation_list:
-#   - ['/home/aerotract/NAS/Clients/Freres/March2023Voles/100_Small/Small_03162023/Data/ortho/100_Small_Orthomosaic_SatMar18214115595123/UntitledProject_Orthomosaic_export_SatMar18214115595123.tif',
-#     '/home/aerotract/NAS/Clients/Freres/March2023Voles/100_Small/Small_03162023/Training/holes.geojson',
-#     '/home/aerotract/NAS/Clients/Freres/March2023Voles/100_Small/Small_03162023/Training/boundary.geojson'
-#   ]
-
-
+#Training List for Giustina
+{
 training_list:
   - ['/home/aerotract/NAS/Clients/Giustina/Winter2023/103_WardsButteSx/Data/ortho/03WardsButteSxGR02122023_Orthomosaic_WedMar08194203915827/03WardsButteSxGR02122023_Orthomosaic_export_WedMar08194203915827.tif',
   '/home/aerotract/NAS/Clients/Giustina/Winter2023/103_WardsButteSx/Training/WardsButte_trees_poly.geojson',
@@ -50,10 +28,6 @@ training_list:
   '/home/aerotract/NAS/Clients/Giustina/Winter2023/100_230OG/Training/Tree_polygons_00_230OG.geojson',
   '/home/aerotract/NAS/Clients/Giustina/Winter2023/100_230OG/Training/border_polygon_00_230OG.geojson'
   ]
-  - ['/home/aerotract/NAS/Clients/Giustina/Winter2023/100_230OG/Data/ortho/230OG_Orthomosaic_export_WedMar08181810258552.tif',
-  '/home/aerotract/NAS/Clients/Giustina/Winter2023/100_230OG/Training/Trees2.geojson',
-  '/home/aerotract/NAS/Clients/Giustina/Winter2023/100_230OG/Training/Boundry2.geojson'
-  ]
   - [
   '/home/aerotract/NAS/Clients/Giustina/Winter2023/112_Wiley520Junction/Data/ortho/Wiley520Junction_Orthomosaic_export_MonMar13192503043098.tif',
   '/home/aerotract/NAS/Clients/Giustina/Winter2023/112_Wiley520Junction/Training/tree_points.geojson',
@@ -80,63 +54,4 @@ validation_list:
   '/home/aerotract/NAS/Clients/Giustina/Winter2023/112_Wiley520Junction/Training/tree_points.geojson',
   '/home/aerotract/NAS/Clients/Giustina/Winter2023/112_Wiley520Junction/Training/Boundary.geojson'
   ]
-
-
-# output path for training/evaluation results
-output_root_uri: '/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet50'
-
-# Class config for this experiment, defines class names and colors
-class_config:
-  names: ["DF"]
-  colors: ["red"]
-
-# Chip options for creating chips from dataset images
-chip_options:
-  neg_ratio: 0.1
-  ioa_thresh: 0.8
-
-# Window options for creating tiled datasets from images
-window_config:
-  chip_sz: 450
-  img_sz: 450
-  max_windows: 450
-
-# Model backbone options - different model sources need different parameters
-backbone_config:  
-  source: "rastervision"
-  name: "resnet50"
-# backbone_config:
-#   source: "external"
-#   github_repo: "AdeelH/vision:det_hubconf_0.12"
-#   name: "ssd"
-#   entrypoint: "ssd300_vgg16"
-#   force_reload: True
-#   pretrained: False
-#   pretrained_backbone: True
-
-# Hyperparams and params for solver used in training
-solver_config:
-  lr: 1e-4
-  num_epochs: 15
-  batch_sz: 8
-  one_cycle: True
-  test_num_epochs: 1
-
-# Hyperparams for prediction bounding boxes
-predict_options:
-  merge_thresh: 0.1
-  score_thresh: 0.5
-
-# Number of workers to deploy on the system
-num_workers: 16
-
-# Tensorboard controls
-tensorboard:
-  log: True
-  run: True
-
-# Environment variables to set before running pipeline
-env:
-  apply: False
-  QT_QPA_PLATFORM: "offscreen"
-  CUDA_VISIBLE_DEVICES: "-1"
+}
