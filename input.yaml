@@ -1,10 +1,10 @@
 # training_list:
-#   - ['/home/aerotract/NAS/Clients/Freres/March2023Voles/100_Small/Small_03162023/Data/ortho/100_Small_Orthomosaic_SatMar18214115595123/UntitledProject_Orthomosaic_export_SatMar18214115595123.tif',
+#   - ['/home/aerotract/NAS/Clients/Freres/March2023Voles/101_Medium/Medium_03162023/Data/ortho/UntitledProject_Orthomosaic_export_SatMar18214827194658.tif',
 #     '/home/aerotract/NAS/Clients/Freres/March2023Voles/100_Small/Small_03162023/Training/holes.geojson',
 #     '/home/aerotract/NAS/Clients/Freres/March2023Voles/100_Small/Small_03162023/Training/boundary.geojson'
 #   ]
 
-#   - ['/home/aerotract/NAS/Clients/Freres/March2023Voles/101_Medium/Medium_03162023/Data/ortho/UntitledProject_Orthomosaic_export_SatMar18214827194658.tif',
+#   - ['/home/aerotract/NAS/Clients/Freres/March2023Voles/102_Large/Large_03162023/Data/ortho/UntitledProject_Orthomosaic_export_SatMar18214827110168.tif',
 #     '/home/aerotract/NAS/Clients/Freres/March2023Voles/101_Medium/Medium_03162023/Training/holes.geojson',
 #     '/home/aerotract/NAS/Clients/Freres/March2023Voles/101_Medium/Medium_03162023/Training/boundary.geojson'
 #   ]
@@ -16,7 +16,7 @@
 
 # # [image, labels, boundary] file groups for evaluation
 # validation_list:
-#   - ['/home/aerotract/NAS/Clients/Freres/March2023Voles/100_Small/Small_03162023/Data/ortho/100_Small_Orthomosaic_SatMar18214115595123/UntitledProject_Orthomosaic_export_SatMar18214115595123.tif',
+#   - ['/home/aerotract/NAS/Clients/Freres/March2023Voles/101_Medium/Medium_03162023/Data/ortho/UntitledProject_Orthomosaic_export_SatMar18214827194658.tif',
 #     '/home/aerotract/NAS/Clients/Freres/March2023Voles/100_Small/Small_03162023/Training/holes.geojson',
 #     '/home/aerotract/NAS/Clients/Freres/March2023Voles/100_Small/Small_03162023/Training/boundary.geojson'
 #   ]
@@ -83,7 +83,7 @@ validation_list:
 
 
 # output path for training/evaluation results
-output_root_uri: '/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet50'
+output_root_uri: '/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet50_5Epoch'
 
 # Class config for this experiment, defines class names and colors
 class_config:
