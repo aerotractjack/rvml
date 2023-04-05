@@ -96,6 +96,10 @@ training_list:
 '/home/aerotract/NAS/Clients/Giustina/Winter2023/115_MealyFinaly/115_MealyFinalyWest/Training/Trees.geojson',
 '/home/aerotract/NAS/Clients/Giustina/Winter2023/115_MealyFinaly/115_MealyFinalyWest/Training/Boundry.geojson'
 ]
+  - ['/home/aerotract/NAS/Clients/Giustina/Winter2023/112_Wiley520Junction/Data/ortho/Wiley520Junction_Orthomosaic_export_MonMar13192503043098.tif',
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/112_Wiley520Junction/Training/SnowyTrees.geojson',
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/112_Wiley520Junction/Training/SnowyBoundry.geojson'
+]
 
 validation_list:
   - ['/home/aerotract/NAS/Clients/Giustina/Winter2023/100_230OG/Data/ortho/230OG_Orthomosaic_export_WedMar08181810258552.tif',
