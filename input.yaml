@@ -36,11 +36,6 @@ training_list:
   '/home/aerotract/NAS/Clients/Giustina/Winter2023/105_WinStormGTF/Training/Sample_Boundary.geojson'
   ]
   - [
-  '/home/aerotract/NAS/Clients/Giustina/Winter2023/107_Pitfall/Data/ortho/07PitfallGR02122023_Orthomosaic_MonMar13183928000094/07PitfallGR02122023_Orthomosaic_export_MonMar13183928000094.tif',
-  '/home/aerotract/NAS/Clients/Giustina/Winter2023/107_Pitfall/Training/Trees.geojson',
-  '/home/aerotract/NAS/Clients/Giustina/Winter2023/107_Pitfall/Training/Boundary.geojson'
-  ]
-  - [
   '/home/aerotract/NAS/Clients/Giustina/Winter2023/108_Moffit/Data/ortho/08MoffitGR02122023_Orthomosaic_export_FriMar10183649417525.tif',
   '/home/aerotract/NAS/Clients/Giustina/Winter2023/108_Moffit/Training/Trees.geojson',
   '/home/aerotract/NAS/Clients/Giustina/Winter2023/108_Moffit/Training/Boundary.geojson' 
@@ -69,7 +64,38 @@ training_list:
 '/home/aerotract/NAS/Clients/Giustina/Winter2023/101_RC480/101_RC480_Middle/Training/Buffered_Trees.geojson',
 '/home/aerotract/NAS/Clients/Giustina/Winter2023/101_RC480/101_RC480_Middle/Training/Boundry.geojson'
 ]
-
+  - [
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/102_RockyRidge/Data/ortho/02RockyRidgeGR02122023_Orthomosaic_WedMar08191856469683/02RockyRidgeGR02122023_Orthomosaic_export_WedMar08191856469683.tif',
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/102_RockyRidge/Training/Trees.geojson',
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/102_RockyRidge/Training/Boundry.geojson'
+]
+  - [
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/102_RockyRidge/Data/ortho/02RockyRidgeGR02122023_Orthomosaic_WedMar08191856469683/02RockyRidgeGR02122023_Orthomosaic_export_WedMar08191856469683.tif',
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/102_RockyRidge/Training/DF minus fluffly trees.geojson',
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/102_RockyRidge/Training/DF minus fluffly trees boundry.geojson'
+]
+  - [
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/106_Winfire/Data/ortho/06WinfireGR02122023_Orthomosaic_WedMar08213557063397/06WinfireGR02122023_Orthomosaic_export_WedMar08213557063397.tif',
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/106_Winfire/Training/Trees.geojson',
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/106_Winfire/Training/Boundry.geojson'
+]
+  - ['/home/aerotract/NAS/Clients/Giustina/Winter2023/104_FinalSalem/Data/ortho/04FinalSalemGR02122023_Orthomosaic_WedMar08195655345878/04FinalSalemGR02122023_Orthomosaic_export_WedMar08195655345878.tif',
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/104_FinalSalem/Training/BufferedTrees_Shade.geojson',
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/104_FinalSalem/Training/Boundary_Shade.geojson'
+]
+  - ['/home/aerotract/NAS/Clients/Giustina/Winter2023/106_Winfire/Data/ortho/06WinfireGR02122023_Orthomosaic_WedMar08213557063397/06WinfireGR02122023_Orthomosaic_export_WedMar08213557063397.tif',
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/106_Winfire/Training/Shade_Trees.geojson',
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/106_Winfire/Training/Shade_Boundary.geojson'
+]
+  - ['/home/aerotract/NAS/Clients/Giustina/Winter2023/117_Brush210/Data/ortho/17Brush210GR02192023_Orthomosaic_export_MonMar13184221271676.tif',
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/117_Brush210/Training/Trees.geojson',
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/117_Brush210/Training/Boundry.geojson'
+]
+  - [
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/115_MealyFinaly/115_MealyFinalyWest/Data/ortho/115MealyFinalyWest_Orthomosaic_export_FriMar24042915460821.tif',
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/115_MealyFinaly/115_MealyFinalyWest/Training/Trees.geojson',
+'/home/aerotract/NAS/Clients/Giustina/Winter2023/115_MealyFinaly/115_MealyFinalyWest/Training/Boundry.geojson'
+]
 
 validation_list:
   - ['/home/aerotract/NAS/Clients/Giustina/Winter2023/100_230OG/Data/ortho/230OG_Orthomosaic_export_WedMar08181810258552.tif',
@@ -83,7 +109,8 @@ validation_list:
 
 
 # output path for training/evaluation results
-output_root_uri: '/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet50_5Epoch'
+output_root_uri: '/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet50_10Epoch_Large'
+#/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/VoleModels/FreresVoleModel/Resnet50
 
 # Class config for this experiment, defines class names and colors
 class_config:
@@ -117,7 +144,7 @@ backbone_config:
 # Hyperparams and params for solver used in training
 solver_config:
   lr: 1e-4
-  num_epochs: 15
+  num_epochs: 10
   batch_sz: 8
   one_cycle: True
   test_num_epochs: 1

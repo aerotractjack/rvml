@@ -28,21 +28,40 @@ training_list:
   '/home/aerotract/NAS/Clients/Giustina/Winter2023/100_230OG/Training/Tree_polygons_00_230OG.geojson',
   '/home/aerotract/NAS/Clients/Giustina/Winter2023/100_230OG/Training/border_polygon_00_230OG.geojson'
   ]
+  - ['/home/aerotract/NAS/Clients/Giustina/Winter2023/100_230OG/Data/ortho/230OG_Orthomosaic_export_WedMar08181810258552.tif',
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/100_230OG/Training/Trees2.geojson',
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/100_230OG/Training/Boundry2.geojson'
+  ]
   - [
   '/home/aerotract/NAS/Clients/Giustina/Winter2023/112_Wiley520Junction/Data/ortho/Wiley520Junction_Orthomosaic_export_MonMar13192503043098.tif',
   '/home/aerotract/NAS/Clients/Giustina/Winter2023/112_Wiley520Junction/Training/tree_points.geojson',
   '/home/aerotract/NAS/Clients/Giustina/Winter2023/112_Wiley520Junction/Training/Boundary.geojson'
   ]
   - [
-'/home/aerotract/NAS/Clients/Giustina/Winter2023/101_RC480/101_RC480_North/Data/ortho/Map1_Orthomosaic_export_FriMar24032400677478.tif',
-'/home/aerotract/NAS/Clients/Giustina/Winter2023/101_RC480/101_RC480_North/Training/Buffered_Trees.geojson',
-'/home/aerotract/NAS/Clients/Giustina/Winter2023/101_RC480/101_RC480_North/Training/Boundry.geojson'
-]
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/101_RC480/101_RC480_North/Data/ortho/Map1_Orthomosaic_export_FriMar24032400677478.tif',
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/101_RC480/101_RC480_North/Training/Buffered_Trees.geojson',
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/101_RC480/101_RC480_North/Training/Boundry.geojson'
+  ]
   - [
-'/home/aerotract/NAS/Clients/Giustina/Winter2023/101_RC480/101_RC480_Middle/Data/ortho/Map1_Orthomosaic_export_FriMar24034656140787.tif',
-'/home/aerotract/NAS/Clients/Giustina/Winter2023/101_RC480/101_RC480_Middle/Training/Buffered_Trees.geojson',
-'/home/aerotract/NAS/Clients/Giustina/Winter2023/101_RC480/101_RC480_Middle/Training/Boundry.geojson'
-]
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/101_RC480/101_RC480_Middle/Data/ortho/Map1_Orthomosaic_export_FriMar24034656140787.tif',
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/101_RC480/101_RC480_Middle/Training/Buffered_Trees.geojson',
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/101_RC480/101_RC480_Middle/Training/Boundry.geojson'
+  ]
+  - [
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/102_RockyRidge/Data/ortho/02RockyRidgeGR02122023_Orthomosaic_WedMar08191856469683/02RockyRidgeGR02122023_Orthomosaic_export_WedMar08191856469683.tif',
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/102_RockyRidge/Training/Trees.geojson',
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/102_RockyRidge/Training/Boundry.geojson'
+  ]
+  - [
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/102_RockyRidge/Data/ortho/02RockyRidgeGR02122023_Orthomosaic_WedMar08191856469683/02RockyRidgeGR02122023_Orthomosaic_export_WedMar08191856469683.tif',
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/102_RockyRidge/Training/DF minus fluffly trees.geojson',
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/102_RockyRidge/Training/DF minus fluffly trees boundry.geojson'
+  ]
+  - [
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/106_Winfire/Data/ortho/06WinfireGR02122023_Orthomosaic_WedMar08213557063397/06WinfireGR02122023_Orthomosaic_export_WedMar08213557063397.tif',
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/106_Winfire/Training/Trees.geojson',
+  '/home/aerotract/NAS/Clients/Giustina/Winter2023/106_Winfire/Training/Boundry.geojson'
+  ]
 
 
 validation_list:
