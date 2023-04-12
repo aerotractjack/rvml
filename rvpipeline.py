@@ -1,3 +1,5 @@
+import matplotlib as plt
+plt.use("agg")
 from rastervision.core.data import ClassConfig, DatasetConfig, SceneConfig
 from rastervision.core.data.raster_source.rasterio_source_config import RasterioSourceConfig
 from rastervision.core.rv_pipeline.object_detection_config import ObjectDetectionPredictOptions
@@ -28,6 +30,7 @@ try:
 except ImportError:
     from yaml import Loader
 import geopandas
+import albumentations as A
 
 def load_yaml(kw):
     ''' helper function to load YAML config file and return contents as dict '''
@@ -147,8 +150,11 @@ def get_config(runner, **kw) -> ObjectDetectionConfig:
             window_opts=window_opts,
             img_sz=img_sz,
             num_workers=input_config["num_workers"],
-            augmentors=[])
-    
+            #base_transform=A.to_dict(A.flip()),
+            #aug_transform={},
+            augmentors=['RGBShift', 'RandomRotate90', 'HorizontalFlip', 'VerticalFlip']#'GaussianBlur', 'GaussNoise', 'Blur',
+            )
+
     predict_options = ObjectDetectionPredictOptions(
         **input_config["predict_options"]
     )

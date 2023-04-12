@@ -10,8 +10,10 @@ def batch_predict():
 
     bundle_list = [#'/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet18/bundle/model-bundle.zip',
                     #'/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet34/bundle/model-bundle.zip', 
-                    '/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet50_10Epoch/bundle/model-bundle.zip'
+                    '/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/FirstYearDF/Resnet50_Sunnyside/bundle/model-bundle.zip'
+                    #'/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet50_10Epoch_Large/bundle/model-bundle.zip',
                     #'/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet152/bundle/model-bundle.zip',
+                    #'/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/VoleModels/FreresVoleModel/Resnet50_20Pred/bundle/model-bundle.zip'
                     ]
 
     for bundle_uri in bundle_list:
@@ -20,9 +22,8 @@ def batch_predict():
             print(f'starting project {number+1} of {len(prediction_list)}')
             
             model_name = bundle_uri.split('/')[-3]
-            print(model_name)
-            split_path = tif.split('/')
-            output_directory = os.path.join('/',split_path[0],split_path[1],split_path[2],split_path[3],split_path[4],split_path[5],split_path[6],split_path[7],'Modeling',model_name+'-products.json')
+            split_path = tif.split('Data')
+            output_directory = os.path.join('/',split_path[0],'Modeling',model_name+'-products.json')
             
             print(output_directory)
             print(tif)
