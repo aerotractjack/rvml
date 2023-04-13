@@ -2,6 +2,7 @@ import os
 from os.path import join
 import pathlib
 import subprocess
+import cProfile
 
 def batch_predict():
     #tifpathlist.txt might need to be command line arg later
@@ -10,7 +11,7 @@ def batch_predict():
 
     bundle_list = [#'/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet18/bundle/model-bundle.zip',
                     #'/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet34/bundle/model-bundle.zip', 
-                    '/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/FirstYearDF/Resnet50_Sunnyside/bundle/model-bundle.zip'
+                    '/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/PineModels/FirstYearPine/Resnet50/bundle/model-bundle.zip'
                     #'/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet50_10Epoch_Large/bundle/model-bundle.zip',
                     #'/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet152/bundle/model-bundle.zip',
                     #'/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/VoleModels/FreresVoleModel/Resnet50_20Pred/bundle/model-bundle.zip'
