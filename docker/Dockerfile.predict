@@ -1,0 +1,7 @@
+FROM raster-vision-pytorch:latest
+ARG config
+
+COPY predict.py predict.py
+COPY $config input.yaml
+
+CMD ["python3", "predict.py", "input.yaml"]

@@ -1,0 +1,24 @@
+IMAGE=rv-runner
+
+function find_free_port_in_range() {
+    LOWER=$1
+    UPPER=$2
+    for (( PORT = $LOWER ; PORT <= $UPPER ; PORT++ ))
+    do
+        ss -lpn | grep -q ":$PORT " || break
+    done
+    FREE_PORT="$PORT"
+}
+
+find_free_port_in_range 6006 7007
+TBOARD="-p $FREE_PORT:$FREE_PORT"
+echo "Tensorboard running on port: $FREE_PORT"
+
+docker run --rm -it \
+    --gpus=all \
+    --name=rvlatest \
+    --ipc=host \
+    -v /home/aerotract/NAS:/home/aerotract/NAS \
+    ${TBOARD} \
+    ${IMAGE} \
+    $@ 

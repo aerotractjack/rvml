@@ -1,0 +1,7 @@
+FROM raster-vision-pytorch:latest
+ARG config
+
+COPY train.py train.py
+COPY $config input.yaml
+
+CMD ["rastervision", "run", "local", "train.py", "-a", "config", "input.yaml"]
