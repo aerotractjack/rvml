@@ -1,0 +1,89 @@
+training_list:
+  - [
+    '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/100_25899297/Data/ortho/100_25899297_EPSG4326_Max/10025899297_Orthomosaic_export_TueMar28173552656224.tif',
+    '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/100_25899297/Training/Buffered_Trees.geojson',
+    '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/100_25899297/Training/boundaries.geojson'
+  ]
+  - [
+    '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/101_25921184/Data/ortho/101_25921184_EPSG4326_Max/10125921184_Orthomosaic_export_TueMar28181956822473.tif',
+    '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/101_25921184/Training/Buffered_Trees.geojson',
+    '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/101_25921184/Training/boundaries.geojson'
+  ]
+  # - [
+  #   '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/103_25901341/Data/ortho/103_25901341_EPSG4326_Max/10325901341_Orthomosaic_export_TueMar28182920265925.tif',
+  #   '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/103_25901341/Training/Buffered_Trees.geojson',
+  #   '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/103_25901341/Training/bounaries.geojson'
+  # ]
+  # - [
+  #   '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/104_34015502/Data/ortho/104_34015502_Max_Available_EPSG_4326/104_34015502_Max_Available_EPSG_4326.tif',
+  #   '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/104_34015502/Training/Buffered_Trees.geojson',
+  #   '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/104_34015502/Training/boundaries.geojson'
+  # ]
+  # - [
+  #   '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/105_25885365/Data/ortho/105_258855365_Max_Available_EPSG_4326/105258855365_Orthomosaic_export_TueMar28184531308012.tif',
+  #   '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/105_25885365/Training/Buffered_Trees.geojson',
+  #   '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/105_25885365/Training/boundaries.geojson'
+  # ]
+  # - [
+  #   '/home/aerotract/NAS/main/Clients/Manulife/Fall-2022/MANL_02_335935_P1/MANL_335935_02_P1_12172022/Data/ortho/335935_Orthomosaic_export_TueMar28203555114537.tif',
+  #   '/home/aerotract/NAS/main/Clients/Manulife/Fall-2022/MANL_02_335935_P1/MANL_335935_02_P1_12172022/Training/tree_sample_02.geojson',
+  #   '/home/aerotract/NAS/main/Clients/Manulife/Fall-2022/MANL_02_335935_P1/MANL_335935_02_P1_12172022/Training/sample_boundary_02.geojson'
+  # ]
+
+validation_list:
+  - [
+    '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/100_25899297/Data/ortho/100_25899297_EPSG4326_Max/10025899297_Orthomosaic_export_TueMar28173552656224.tif',
+    '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/100_25899297/Training/Buffered_Trees.geojson',
+    '/home/aerotract/NAS/main/Clients/WeyerhaeuserLA/WeycoSurvivalInventory2023/100_25899297/Training/boundaries.geojson'
+  ]
+
+# output path for training/evaluation results
+output_root_uri: '/home/aerotract/NAS/main/JackSandbox/rvml-docker-test/PreTrainedModels/PineModels/FirstYearPine/Resnet50'
+
+# Class config for this experiment, defines class names and colors
+class_config:
+  names: ["DF"]
+  colors: ["red"]
+
+# Chip options for creating chips from dataset images
+chip_options:
+  neg_ratio: .1
+  ioa_thresh: 0.7 #50 percent for big trees, 75 percent for seedlings
+
+# Window options for creating tiled datasets from images
+window_config:
+  chip_sz: 800
+  img_sz: 800
+  max_windows: 100
+
+# Model backbone options - different model sources need different parameters
+backbone_config:  
+  source: "rastervision"
+  name: "resnet50"
+
+# Hyperparams and params for solver used in training
+solver_config:
+  lr: 1e-4
+  num_epochs: 2
+  batch_sz: 2
+  one_cycle: True
+  test_num_epochs: 1
+
+# Hyperparams for prediction bounding boxes
+predict_options:
+  merge_thresh: 0.1
+  score_thresh: 0.70
+
+# Number of workers to deploy on the system
+num_workers: 1
+
+# Tensorboard controls
+tensorboard:
+  log: True
+  run: True
+
+# Environment variables to set before running pipeline
+env:
+  apply: False
+  QT_QPA_PLATFORM: "offscreen"
+  CUDA_VISIBLE_DEVICES: "-1"
