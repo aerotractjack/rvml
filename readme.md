@@ -1,11 +1,12 @@
 # rastervision pipeline
+The `rv.sh` script contains entrypoints for training and prediction. 
 
 # USAGE
-`$ rastervision run local rvpipeline.py -a config /PATH/TO/CONFIG.yaml`
-
-OR
-
+1. Training: 
+```bash
+$ rv.sh train /path/to/train_config.yaml
 ```
-$ chmod +x runwithconfig.sh  # this is a setup step, only needs to be run once
-$ ./runwithconfig.sh /PATH/TO/CONFIG.yaml
+2. Prediction: 
+```bash
+$ rv.sh predict /path/to/predict_config.yaml
 ```
