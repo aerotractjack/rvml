@@ -1,0 +1,5 @@
+#!/bin/bash
+
+docker rmi rv-runner 
+docker/build $1 $2 &&
+docker/run
