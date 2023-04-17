@@ -47,6 +47,8 @@ def set_env(input_config):
         os.environ[k] = str(v)
 
 def _shp_to_geojson(file_group_list):
+    ''' Given an input list of files, convert any SHP files to GeoJSON and replace
+     their SHP path with the GeoJSON path in the list '''
     for k, group in enumerate(file_group_list):
         for i, file in enumerate(group):
             if file.split(".")[-1] != "shp":
@@ -60,6 +62,7 @@ def _shp_to_geojson(file_group_list):
     return file_group_list
 
 def shp_to_geojson(input_config):
+    ''' Convert training and validation SHP files to GeoJSON '''
     input_config["training_list"] = _shp_to_geojson(input_config["training_list"])
     input_config["validation_list"] = _shp_to_geojson(input_config["validation_list"])
     return input_config
