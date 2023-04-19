@@ -1,7 +1,7 @@
 #!/bin/bash
 
 train() {
-    rastervision run local train.py -a config $1
+    rastervision run inprocess train.py -a config $1
 }
 
 predict() {
