@@ -4,4 +4,4 @@ ARG config
 COPY train.py train.py
 COPY $config input.yaml
 
-CMD ["rastervision", "run", "local", "train.py", "-a", "config", "input.yaml"]
+CMD ["rastervision", "run", "inprocess", "train.py", "-a", "config", "input.yaml"]

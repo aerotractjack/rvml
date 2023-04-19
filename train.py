@@ -1,5 +1,3 @@
-import matplotlib as plt
-plt.use("agg")
 from rastervision.core.data import ClassConfig, DatasetConfig, SceneConfig
 from rastervision.core.data.raster_source.rasterio_source_config import RasterioSourceConfig
 from rastervision.core.rv_pipeline.object_detection_config import ObjectDetectionPredictOptions
