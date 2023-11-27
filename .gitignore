@@ -4,3 +4,5 @@ data/*.json
 tf/**
 !tf/main.tf
 **/s3:/**
+out.txt
+temp.txt
