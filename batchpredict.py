@@ -3,6 +3,9 @@ from os.path import join
 import pathlib
 import subprocess
 import cProfile
+import time
+from enforce_grid import enforce_grid
+from pathlib import Path
 
 def batch_predict():
     #tifpathlist.txt might need to be command line arg later
@@ -11,10 +14,9 @@ def batch_predict():
 
     bundle_list = [#'/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet18/bundle/model-bundle.zip',
                     #'/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet34/bundle/model-bundle.zip', 
-                    '/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/PineModels/FirstYearPine/Resnet50/bundle/model-bundle.zip'
-                    #'/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet50_10Epoch_Large/bundle/model-bundle.zip',
-                    #'/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet152/bundle/model-bundle.zip',
-                    #'/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/VoleModels/FreresVoleModel/Resnet50_20Pred/bundle/model-bundle.zip'
+                    # '/home/aerotract/NAS/main/ml_storage/PreTrainedModels/DFModels/FiveYearDF/Resnet152_2/bundle/model-bundle.zip',
+                    # '/home/aerotract/NAS/main/ml_storage/PreTrainedModels/DFModels/FiveYearDF/Resnet152_2/bundle/model-bundle.zip',
+                    '/home/aerotract/NAS/main/ml_storage/PreTrainedModels/Siskiyou_3/bundle/model-bundle.zip'
                     ]
 
     for bundle_uri in bundle_list:
@@ -24,13 +26,22 @@ def batch_predict():
             
             model_name = bundle_uri.split('/')[-3]
             split_path = tif.split('Data')
-            output_directory = os.path.join('/',split_path[0],'Modeling',model_name+'-products.json')
+            output_directory = os.path.join('/',split_path[0],'Modeling',model_name+'-products'+str(time.time())+".json")
             
             print(output_directory)
             print(tif)
             print(bundle_uri)
 
             subprocess.run(['rastervision','predict',bundle_uri,tif,output_directory])
+            
+            #enforce_grid
+            enforce_output = os.path.join(Path(output_directory).parent,"enforced_grid.geojson")
+            wait = os.path.exists(output_directory)
+            while not wait:
+                time.sleep(10)
+                wait = os.path.exists(output_directory)
+
+            enforce_grid(output_directory,enforce_output)
 
         
 if __name__ == "__main__":

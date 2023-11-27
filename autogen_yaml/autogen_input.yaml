@@ -1,0 +1,40 @@
+backbone_config:
+  name: resnet152
+  source: rastervision
+chip_options:
+  ioa_thresh: 0.75
+class_config:
+  colors:
+  - red
+  names:
+  - DF
+env:
+  CUDA_VISIBLE_DEVICES: '-1'
+  QT_QPA_PLATFORM: offscreen
+  apply: false
+num_workers: 8
+output_root_uri: /CHANGE/THIS
+predict_options:
+  merge_thresh: 0.1
+  score_thresh: 0.1
+solver_config:
+  batch_sz: 8
+  lr: 5e-6
+  num_epochs: 10
+  one_cycle: true
+  test_num_epochs: 1
+tensorboard:
+  log: true
+  run: true
+training_list:
+- - /home/aerotract/NAS/main/Clients/10054_ManulifeOR/101035_ManulifeORLaGrandFall2023/101_BarooDF02-CV/Data/ortho/101_ortho.tif
+  - /home/aerotract/NAS/main/Clients/10054_ManulifeOR/101035_ManulifeORLaGrandFall2023/101_BarooDF02-CV/Training/Buffered_Trees_1.geojson
+  - /home/aerotract/NAS/main/Clients/10054_ManulifeOR/101035_ManulifeORLaGrandFall2023/101_BarooDF02-CV/Training/AOI_1.geojson
+- - /home/aerotract/NAS/main/Clients/10054_ManulifeOR/101035_ManulifeORLaGrandFall2023/102_BarooPP02-CV/Data/ortho/102_ortho.tif
+  - /home/aerotract/NAS/main/Clients/10054_ManulifeOR/101035_ManulifeORLaGrandFall2023/102_BarooPP02-CV/Training/Buffered_Trees_1.geojson
+  - /home/aerotract/NAS/main/Clients/10054_ManulifeOR/101035_ManulifeORLaGrandFall2023/102_BarooPP02-CV/Training/AOI_1.geojson
+validation_list: []
+window_config:
+  chip_sz: 500
+  img_sz: 500
+  max_windows: 500

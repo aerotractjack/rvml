@@ -101,7 +101,7 @@ def make_scene(image_uri: str, label_uri: str, aoi_uri=None) -> SceneConfig:
             uris=[image_uri], channel_order=[0, 1, 2])
     label_source = ObjectDetectionLabelSourceConfig(
         vector_source=GeoJSONVectorSourceConfig(
-                uri=label_uri,
+                uris=label_uri,
                 ignore_crs_field=True,
                 transformers=[ClassInferenceTransformerConfig(default_class_id=0)]
         )
@@ -125,7 +125,7 @@ def get_config(runner, **kw) -> ObjectDetectionConfig:
     #list of tuples where each tuple is (image_uri, label_uri, aoi_uri)
     training_list = input_config["training_list"]
     validation_list = input_config["validation_list"]
-    
+
     scene_dataset = DatasetConfig(
         class_config=class_config,
         train_scenes=[make_scene(*stand) for stand in training_list],
@@ -152,7 +152,7 @@ def get_config(runner, **kw) -> ObjectDetectionConfig:
             num_workers=input_config["num_workers"],
             #base_transform=A.to_dict(A.flip()),
             #aug_transform={},
-            augmentors=['RGBShift', 'RandomRotate90', 'HorizontalFlip', 'VerticalFlip']#'GaussianBlur', 'GaussNoise', 'Blur',
+            augmentors=['RandomRotate90', 'HorizontalFlip', 'VerticalFlip']#'GaussianBlur', 'GaussNoise', 'Blur',
             )
 
     predict_options = ObjectDetectionPredictOptions(
