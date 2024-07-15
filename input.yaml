@@ -1,66 +1,77 @@
 training_list:
-- ['/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/131_P23-629/Data/ortho/131P23629_Orthomosaic_export_MonOct30224934156397.tif',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/131_P23-629/Training/Buffered_Trees_2.geojson',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/131_P23-629/Training/AOI_2.geojson'
-]
-- ['/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/160_P22-404/Data/ortho/160P22404_Orthomosaic_export_SunOct15042957495542.tif',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/160_P22-404/Training/Buffered_Trees_2.geojson',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/160_P22-404/Training/AOI_2.geojson'
-]
-- ['/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/161_P22-405/Data/ortho/161P22405_Orthomosaic_export_SatOct14192426314827.tif',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/161_P22-405/Training/Buffered_Trees_2.geojson',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/161_P22-405/Training/AOI_2.geojson'
-]
-- ['/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/162_P22-406/Data/ortho/162P22406_Orthomosaic_export_SunOct15043125960263.tif',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/162_P22-406/Training/Buffered_Trees_2.geojson',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/162_P22-406/Training/AOI_2.geojson'
-]
-- ['/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/168_P22-207/Data/ortho/168_ortho.tif',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/168_P22-207/Training/Buffered_Trees_2.geojson',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/168_P22-207/Training/AOI_2.geojson'
-]
-- ['/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/170_P22-408/Data/ortho/170_ortho.tif',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/170_P22-408/Training/Buffered_Trees_2.geojson',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/170_P22-408/Training/AOI_2.geojson'
-]
-- ['/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/171_P22-529/Data/ortho/171_ortho.tif',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/171_P22-529/Training/Buffered_Trees_2.geojson',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/171_P22-529/Training/AOI_2.geojson'
-]
-- ['/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/179_P22-732/Data/ortho/179_ortho.tif',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/179_P22-732/Training/Buffered_Trees_1.geojson',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/179_P22-732/Training/AOI_1.geojson'
-]
-- ['/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/177_P22-639/Data/ortho/177_ortho.tif',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/177_P22-639/Training/Buffered_Trees_1.geojson',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/177_P22-639/Training/AOI_1.geojson'
-]
-- ['/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/180_P22-739/Data/ortho/180_ortho.tif',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/180_P22-739/Training/Buffered_Trees_1.geojson',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/180_P22-739/Training/AOI_1.geojson'
-]
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/107_Homestead_Patch/Data/ortho/107_Homestead_Patch_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/107_Homestead_Patch/Training/Buffered_Trees_0.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/107_Homestead_Patch/Training/AOI_0.geojson
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/109_Lost_Dennison/Data/ortho/109_Lost_Dennison_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/109_Lost_Dennison/Training/Buffered_Trees_0.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/109_Lost_Dennison/Training/AOI_0.geojson
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/114_Beef_Stewah/Data/ortho/114_Beef_Stewah_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/114_Beef_Stewah/Training/Buffered_Trees_7.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/114_Beef_Stewah/Training/AOI_7.geojson
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/122_Captian_Woodrow/Data/ortho/122_Captian_Woodrow_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/122_Captian_Woodrow/Training/Buffered_Trees_7.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/122_Captian_Woodrow/Training/AOI_7.geojson
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/129_Big_Deal/Data/ortho/129_Big_Deal_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/129_Big_Deal/Training/Buffered_Trees_0.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/129_Big_Deal/Training/AOI_0.geojson
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/129_Big_Deal/Data/ortho/129_Big_Deal_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/129_Big_Deal/Training/Buffered_Trees_1.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/129_Big_Deal/Training/AOI_1.geojson
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/145_Hydro_Placer_Divide/Data/ortho/145_Hydro_Placer_Divide_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/145_Hydro_Placer_Divide/Training/Buffered_Trees_0.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/145_Hydro_Placer_Divide/Training/AOI_0.geojson
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/146_Kick_The_Can/Data/ortho/146_Kick_The_Can_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/146_Kick_The_Can/Training/Buffered_Trees_0.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/146_Kick_The_Can/Training/AOI_0.geojson
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/147_Frog_Leg/Data/ortho/147_Frog_Leg_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/147_Frog_Leg/Training/Buffered_Trees_0.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/147_Frog_Leg/Training/AOI_0.geojson
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/155_BobS_Thicket/Data/ortho/155_BobS_Thicket_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/155_BobS_Thicket/Training/Buffered_Trees_0.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/155_BobS_Thicket/Training/AOI_0.geojson
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/258_Beaver_Highway_Nw/Data/ortho/258_Beaver_Highway_Nw_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/258_Beaver_Highway_Nw/Training/Buffered_Trees_0.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/258_Beaver_Highway_Nw/Training/AOI_0.geojson
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/279_Quartz_Remains/Data/ortho/279_Quartz_Remains_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/279_Quartz_Remains/Training/Buffered_Trees_0.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/279_Quartz_Remains/Training/AOI_0.geojson
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/281_Bologna_Creek/Data/ortho/281_Bologna_Creek_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/281_Bologna_Creek/Training/Buffered_Trees_0.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/281_Bologna_Creek/Training/AOI_0.geojson
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/301_Two_Tears/Data/ortho/301_Two_Tears_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/301_Two_Tears/Training/Buffered_Trees_0.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/301_Two_Tears/Training/AOI_0.geojson
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/301_Two_Tears/Data/ortho/301_Two_Tears_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/301_Two_Tears/Training/Buffered_Trees_1.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/301_Two_Tears/Training/AOI_1.geojson
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/301_Two_Tears/Data/ortho/301_Two_Tears_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/301_Two_Tears/Training/Buffered_Trees_2.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/301_Two_Tears/Training/AOI_2.geojson
+
+
 validation_list:
-- ['/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/160_P22-404/Data/ortho/160P22404_Orthomosaic_export_SunOct15042957495542.tif',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/160_P22-404/Training/Buffered_Trees_2.geojson',
-'/home/aerotract/NAS/main/Clients/10041_WeyerhaeuserSpringfield/101037_Fall2023SurvivalSurveys/160_P22-404/Training/AOI_2.geojson'
-]
+  - - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/107_Homestead_Patch/Data/ortho/107_Homestead_Patch_ortho.tif
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/107_Homestead_Patch/Training/Buffered_Trees_0.geojson
+    - /home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/107_Homestead_Patch/Training/AOI_0.geojson
+
+
 # output path for training/evaluation results
-output_root_uri: '/home/aerotract/NAS/main/ml_storage/PreTrainedModels/SpringfieldFall23'
+output_root_uri: '/home/aerotract/NAS/main/ml_storage/PreTrainedModels/potlatch_multiclass_spring2024_NEW'
 
 # Class config for this experiment, defines class names and colors
 class_config:
-  names: ["DF"]
-  colors: ["red"]
+  names: ["DF","WL","LP","PP","RC"] #"DF","WL","LP","PP","RC"
+  colors: ["red","blue","orange","purple","yellow"] #"red","blue","orange","purple","yellow"
 
 # Chip options for creating chips from dataset images
 chip_options:
-  neg_ratio: 0.0
-  ioa_thresh: 0.75 #0.8
+  neg_ratio: 0
+  ioa_thresh: 0.8 #0.8
 
 # Window options for creating tiled datasets from images
 window_config:
-  chip_sz: 800 #1000
-  img_sz: 800 #1000
+  chip_sz: 1000 #1000
+  img_sz: 1000 #1000
   max_windows: 500
 
 # Model backbone options - different model sources need different parameters
@@ -79,8 +90,8 @@ backbone_config:
 # Hyperparams and params for solver used in training
 solver_config:
   lr: 5e-6
-  num_epochs: 9
-  batch_sz: 4  #8
+  num_epochs: 6
+  batch_sz: 8 #8
   one_cycle: True
   test_num_epochs: 1
 
@@ -90,7 +101,7 @@ predict_options:
   score_thresh: 0.10
 
 # Number of workers to deploy on the system
-num_workers: 8
+num_workers: 1
 
 # Tensorboard controls
 tensorboard:

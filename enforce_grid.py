@@ -45,7 +45,7 @@ def enforce_grid(input_path: str, output_path: str):
 
         # Calculate the distance in meters using geodesic
         distance = geodesic(point_coords, ref_coords).meters
-        if distance < 2.1:
+        if distance < 0.3:
             # Compare the scores and remove the polygon with the lower score
             current_score = row['score']
             nearest_score = gdf.loc[nearest_idxs[0], 'score']
@@ -64,7 +64,7 @@ def enforce_grid(input_path: str, output_path: str):
 
 if __name__ == "__main__":
     #tifpathlist.txt might need to be command line arg later
-    with open('tifpathlist.txt','r') as text:
+    with open('enforce_grid_path_list.txt','r') as text:
         prediction_list = [line.rstrip('\n') for line in text]
 
     
@@ -78,10 +78,13 @@ if __name__ == "__main__":
         print(output_directory)
         
         #enforce_grid
-        enforce_output = os.path.join(Path(output_directory).parent,"enforced_grid.geojson")
+        enforce_output = os.path.join(Path(output_directory).parent,"enforced_grid1.geojson")
+        new_enforce_output = os.path.join(Path(output_directory).parent,"enforced_grid2.geojson")
+
         wait = os.path.exists(output_directory)
         while not wait:
             time.sleep(10)
             wait = os.path.exists(output_directory)
 
         enforce_grid(output_directory,enforce_output)
+        enforce_grid(enforce_output,new_enforce_output)

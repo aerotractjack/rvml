@@ -125,7 +125,6 @@ def get_config(runner, **kw) -> ObjectDetectionConfig:
     #list of tuples where each tuple is (image_uri, label_uri, aoi_uri)
     training_list = input_config["training_list"]
     validation_list = input_config["validation_list"]
-
     scene_dataset = DatasetConfig(
         class_config=class_config,
         train_scenes=[make_scene(*stand) for stand in training_list],

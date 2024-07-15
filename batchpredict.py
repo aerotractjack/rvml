@@ -16,7 +16,7 @@ def batch_predict():
                     #'/home/aerotract/GoBag/Migrate/dev/PreTrainedModels/DFModels/ThirdYearDF/Resnet34/bundle/model-bundle.zip', 
                     # '/home/aerotract/NAS/main/ml_storage/PreTrainedModels/DFModels/FiveYearDF/Resnet152_2/bundle/model-bundle.zip',
                     # '/home/aerotract/NAS/main/ml_storage/PreTrainedModels/DFModels/FiveYearDF/Resnet152_2/bundle/model-bundle.zip',
-                    '/home/aerotract/NAS/main/ml_storage/PreTrainedModels/Siskiyou_3/bundle/model-bundle.zip'
+                    '/home/aerotract/NAS/main/ml_storage/PreTrainedModels/potlatch_multiclass_spring2024_NEW/bundle/model-bundle.zip'
                     ]
 
     for bundle_uri in bundle_list:
@@ -34,15 +34,20 @@ def batch_predict():
 
             subprocess.run(['rastervision','predict',bundle_uri,tif,output_directory])
             
-            #enforce_grid
+            enforce_grid
             enforce_output = os.path.join(Path(output_directory).parent,"enforced_grid.geojson")
+            new_enforce_output = os.path.join(Path(output_directory).parent,"enforced_grid2.geojson")
+
             wait = os.path.exists(output_directory)
             while not wait:
+                
                 time.sleep(10)
                 wait = os.path.exists(output_directory)
 
             enforce_grid(output_directory,enforce_output)
+            enforce_grid(enforce_output,new_enforce_output)
 
-        
+     
 if __name__ == "__main__":
+
     batch_predict()

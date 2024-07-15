@@ -68,10 +68,10 @@ def main(client_id, project_id, stand_ids, output_root_uri, epochs):
 if __name__ == "__main__":
     import argparse
 
-    DEFAULT_CLIENT_ID = 10050
-    DEFAULT_PROJECT_ID = 101042
-    DEFAULT_STAND_IDS = [100, 101, 102, 103, 104, 105, 106, 107, 108]
-    #DEFAULT_STAND_IDS = [101, 102]
+    DEFAULT_CLIENT_ID = 10028
+    DEFAULT_PROJECT_ID = 101087
+    DEFAULT_STAND_IDS = [110, 113, 136, 254, 262, 269, 270, 272, 275, 278, 296, 299, 304, 305]
+    #DEFAULT_STAND_IDS = [104, 105]
     DEFAULT_OUTPUT = "Manulife_WA"
     DEFAULT_EPOCHS = 5
 
