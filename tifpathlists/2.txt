@@ -1,0 +1,2 @@
+/home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/241_Little_Bear_Bottom/Data/ortho/241_Little_Bear_Bottom_ortho.tif
+/home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/246_Hibbs_Mcgary/Data/ortho/246_Hibbs_Mcgary_ortho.tif

@@ -1,0 +1,2 @@
+/home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/235_Blackwell_Slice/Data/ortho/235_Blackwell_Slice_ortho.tif
+/home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/236_Before_Retention/Data/ortho/236_Before_Retention_ortho.tif
