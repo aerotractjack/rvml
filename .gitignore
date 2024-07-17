@@ -5,4 +5,4 @@ tf/**
 !tf/main.tf
 **/s3:/**
 out.txt
-temp.txt
+temp.txttifpathlist.txt
