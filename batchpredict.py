@@ -6,6 +6,40 @@ import cProfile
 import time
 from enforce_grid import enforce_grid
 from pathlib import Path
+import subprocess
+import os
+from pathlib import Path
+
+def downsample_tif(input_path, output_path):
+    try:
+        subprocess.run([
+            'gdal_translate',
+            '-outsize', '50%', '50%',
+            input_path,
+            output_path
+        ], check=True)
+        print(f'Successfully downsampled {input_path} to {output_path}')
+    except subprocess.CalledProcessError as e:
+        print(f'Error downsampling {input_path}: {e}')
+
+def generate_output_path(input_path):
+    # Example: generate output path by appending '_downsampled' to the filename
+    directory = Path(input_path).parent
+    file_name = Path(input_path).name
+    new_file_name = file_name.split(".")[0] + "_downsampled.tif"
+    output_filename = os.path.join(directory,new_file_name)
+    return output_filename
+
+def main():
+    input_file = 'tif_path_list.txt'
+    with open(input_file, 'r') as file:
+        lines = file.readlines()
+    
+    for line in lines:
+        input_path = line.strip()
+        if input_path:
+            output_path = generate_output_path(input_path)
+            downsample_tif(input_path, output_path)
 
 def batch_predict():
     #tifpathlist.txt might need to be command line arg later
@@ -28,11 +62,15 @@ def batch_predict():
             split_path = tif.split('Data')
             output_directory = os.path.join('/',split_path[0],'Modeling',model_name+'-products'+str(time.time())+".json")
             
+            print(f"downsampling {tif}")
+            tif_downsampled = generate_output_path(tif)
+            downsample_tif(tif, tif_downsampled)
             print(output_directory)
-            print(tif)
+            print(tif_downsampled)
             print(bundle_uri)
 
-            subprocess.run(['rastervision','predict',bundle_uri,tif,output_directory])
+            print(f"processing {tif_downsampled}")
+            subprocess.run(['rastervision','predict',bundle_uri,tif_downsampled,output_directory])
             
             enforce_grid
             enforce_output = os.path.join(Path(output_directory).parent,"enforced_grid.geojson")
@@ -49,5 +87,4 @@ def batch_predict():
 
      
 if __name__ == "__main__":
-
     batch_predict()

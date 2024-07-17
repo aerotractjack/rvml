@@ -1,4 +1,1 @@
-/home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/129_Big_Deal/Data/ortho/129_Big_Deal_ortho.tif
-/home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/145_Hydro_Placer_Divide/Data/ortho/145_Hydro_Placer_Divide_ortho.tif
-/home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/146_Kick_The_Can/Data/ortho/146_Kick_The_Can_ortho.tif
-/home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/147_Frog_Leg/Data/ortho/147_Frog_Leg_ortho.tif
+/home/aerotract/NAS/main/Clients/10028_Potlatch/101087_Spring_2024/105_Cooper_Rudo/Data/ortho/105_Cooper_Rudo_ortho_downsampled.tif
